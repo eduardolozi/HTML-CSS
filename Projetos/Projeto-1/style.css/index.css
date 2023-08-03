@@ -1,0 +1,62 @@
+.merriweather {
+  font-family: "Merriweather", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+}
+
+header {
+  background-color: #1f2937;
+}
+
+header img{
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 10px;
+  margin-bottom: -3px;
+}
+
+.icon-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.header-title {
+  display: inline-block;
+  color: white;
+}
+
+.menu {
+  display: inline-block;
+  text-align: center;
+}
+
+.menu a {
+  font-size: 2rem;
+  margin: 0  2rem 0 2rem;
+  text-decoration: none;
+  color: #E7562E;
+  transition: color 500ms ease-in-out,
+}
+
+.menu a:hover {
+  color: #ea7e60;
+  
+}
+

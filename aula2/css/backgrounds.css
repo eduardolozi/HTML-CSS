@@ -1,0 +1,81 @@
+/* 
+background-color: define el color de fondo del elemento
+background-image: define la imagen de fondo del elemento
+background-size: define el tamaño de la imagen de fondo, primer valor x, segundo y
+    - cover: cambia el tamaño de la imagen de fondo para asegurarse de que permanezca completamente visible
+    - contain: cambia el tamaño de la imagen de fondo para asegurarse de que el elemento esté completamente cubierto
+background-repeat: define cómo se repite la imagen de fondo en el elemento
+background-position:
+  define la posición de la imagen de fondo, primer valor x, segundo y, si no se especifica un segundo valor éste será center
+  aparte de valores numéricos podemos indicar el posicionamiento con las palabras: center, top, bottom, left and right
+background-clip: define cuánto debe extenderse el fondo dentro del elemento.
+background-origin: define el origen de la imagen de fondo.
+background-attachment: define cómo se comportará la imagen de fondo al desplazarse por la página
+*/
+
+.box {
+  border: thick red dashed;
+  margin: 2rem auto;
+  width: 300px;
+  height: 300px;
+}
+
+.bg-color {
+  background-color: black;
+}
+
+.bg-img {
+  background-image: url(../assets/aiiimesi.png);
+  background-size: 100% 100%;
+}
+
+.bg-repeat {
+  background-image: url(../assets/aiiimesi.png);
+  background-size: 100px;
+  background-repeat: repeat;
+  background-repeat: repeat-x;
+  background-repeat: repeat-y;
+  background-repeat: no-repeat;
+}
+
+.bg-position {
+  background-image: url(../assets/aiiimesi.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* ATUA SOBRE TODOS OS ELEMENTOS DO FUNDO */
+.bg-clip {
+  background-color: skyblue;
+  background-image: url(../assets/aiiimesi.png);
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-size: cover;
+  background-clip: border-box; /* default */
+  background-clip: padding-box;
+  background-clip: content-box;
+  padding: 1rem;
+}
+
+/* ATUA APENAS SOBRE A IMAGEM DE FUNDO */
+.bg-origin {
+  background-color: skyblue;
+  background-image: url(../assets/aiiimesi.png);
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-size: cover;
+  background-origin: padding-box; /* default */
+  background-origin: border-box;
+  background-origin: content-box;
+  padding: 1rem;
+}
+
+.bg-attachment {
+  background-color: skyblue;
+  background-image: url(../assets/aiiimesi.png);
+  width: 100%;
+  height: 50vh;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}

@@ -1,0 +1,173 @@
+/* 
+https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/El_modelo_de_caja
+Modelo de Caja: Es la forma en que CSS ve a los elementos HTML y ¿cómo los ve? como si fueran cajas con las siguientes propiedades:
+  1. El contenido (content): El contenido (texto) del elemento HTML, tomando en cuanta sus dimensiones (width & height)
+  2. El borde (border): Lo que delimita cada uno de los elementos HTML
+  3. El relleno (padding): Son las distancias internas (La distancia del borde al contenido)
+  3. El márgen (margin): Son las distancias externas (La distancia entre el elemento html y sus elementos hermanos o padres)
+Dentro del modelo de caja hay que considerar que una caja tendrá 4 lados:
+  1. Arriba (top)
+  2. Derecha (right)
+  3. Abajo (bottom)
+  4. Izquierda (left)
+*/
+
+h1{
+
+  width: 400px;
+  height: 200px;
+  /* propiedades de tipo shorthand */
+  border-color: green;
+  border-top-color: red;
+  border-width: thick; /* thin - 1px , medium - 3px, thick - 5px */
+  border-style: solid;
+  border: 2px dashed blue; /* É possível fazer isso colocando os valores de width, style e color */
+}
+
+/* As divs não possuem margin automáticos pelos navegadores, diferente de outras tags como os <p> ou <h>. Dessa forma, se tem uma div logo em seguida de outra, elas vao estar coladas */
+.caixa-um,
+.caixa-dois {
+  background-color: brown;
+  border: orange solid medium; 
+  padding: 30px 50px;
+  margin: 40px 30px;
+}
+
+/* 
+Caja de Línea
+  - Ocupan el espacio necesario para mostrar su contenido.
+  - No tienen dimensiones modificables (alto, ancho).
+  - Permiten otros elementos a su lado.
+  - Padding y margin solo empujan a elementos adyacentes en horizontal, NUNCA EN VERTICAL.
+  - Ou seja, as de linha quando são dados paddings verticais podem engolir o espaço das tags de cima e baixo dela.
+Caja de Bloque
+  - Ocupan todo el ancho disponible, lo que genera saltos de línea.
+  - Tienen dimensiones modificables (alto, ancho).
+  - No permiten otros elementos a su lado (aunque especifique un ancho, siguen ocupando todo el espacio disponible a lo ancho, generando saltos de línea).
+*/
+
+.caixa-linha,
+.caixa-bloco {
+  background-color: darkcyan;
+  color: white;
+  border: solid black medium;
+  width: 500px;
+  height: 50px;
+  padding: 16px;
+}
+
+.caixa-bloco {
+  margin: 25px;
+}
+
+.caixa-linha {
+  margin: 40px 25px;
+}
+
+/* 
+Propiedad Display
+  inline
+  block
+  inline-block - Se comporta como un elemento de línea pero acepta modificar sus dimensiones (alto y ancho), o padding agora funcionacomo o de bloco e o margin tbm
+  none
+  table
+  list-item
+  flex - ve mi curso de Flexbox CSS
+  grid - ve mi curso de Grid CSS
+*/
+
+.display-none,
+.display-inline-block,
+.caixa-hidden {
+  background-color: darkolivegreen;
+  color: white;
+  border: black solid medium;
+  height: 100px;
+  width: 500px;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-inline-block {
+  display: inline-block;
+  padding: 50px;
+  margin: 40px;
+}
+
+.caixa-hidden {
+  visibility: hidden;
+}
+
+.overflow {
+  background-color: blueviolet;
+  color: black;
+  width: 200px;
+  height: 100px;
+  overflow: visible;
+  overflow: hidden;
+  overflow: scroll;
+  overflow: auto;
+}
+
+/* TAMANHO DA CAIXA */
+
+/* QUANDO USAMOS O:
+  -> CONTENT-BOX: O TAMANHO DA CAIXA VAI LEVAR EM CONSIDERAÇÃO O CONTEUDO, MAS SE USARMOS TAMANHOS PARA PADDINGS E BORDERS ELES SAO SOMADOS NO TAMANHO DA CAIXA
+
+  ->BORDER BOX: O TAMANHO DA CAIXA VAI SER FIXO EM RELAÇÃO A ALTURA E LARGURA QUE DEFINIMOS. OU SEJA, JÁ VAI LEVAR EM CONSIDERAÇÃO BORDER, PADDING E CONTEUDO, NAO SENDO INCREMENTATIVO.
+*/
+
+/* FAZEMOS QUE TODAS AS CAIXAS FUNCIONEM DE MANEIRA BORDER-BOX */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.tamanho-caixa-conteudo,
+.tamanho-caixa-border {
+  box-sizing: content-box; /*  Por padrão esse é o jeito que o css aplica o tamanho de caixa*/
+  background-color: orange;
+  height: 250px;
+  width: 500px;  
+  border: solid black medium;
+  padding: 10px;
+}
+
+.tamanho-caixa-border {
+  box-sizing: border-box;
+}
+
+/* COLAPSO DE MARGENS VERTICAIS */
+.colapso-margens{
+  background-color: skyblue;
+}
+
+.colapso-margens section{
+  border: solid thin black;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.colapso-margens span{
+  display: inline-block;
+  border: solid thin black;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+/* CENTRALIZAR CAIXAS */
+.centralizacao-caixa {
+  background-color: orange;
+  width: 500px;
+  height: 600px;
+  margin: auto;
+  text-align: center;
+  padding: 16px;
+}

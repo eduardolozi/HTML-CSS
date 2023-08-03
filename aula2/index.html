@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendendo CSS-1</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+    <h1>CSS BÁSICO</h1>
+    <section id="indice">
+      <h2>Índice</h2>
+      <ul>
+        <li><a href="#seletores-basicos">Seletores Básicos</a></li>
+        <li><a href="#seletores-avancados">Seletores Avançados</a></li>
+        <li><a href="#pseudoclasses">Pseudoclasses</a></li>
+        <li><a href="#pseudoelementos">Pseudoelementos</a></li>
+        <li><a href="#agrupando-seletores">Agrupando-seletores</a></li>
+        <li><a href="#normalize">Normalize</a></li>
+        <li><a href="box-model.html">Box Model</a></li>
+        <li><a href="positions.html">Posicionamento</a></li>
+        <li><a href="position-exercises.html">Exercicios de Posicionamento</a></li>
+        <li><a href="colors.html">Cores em CSS</a></li>
+        <li><a href="units.html">Unidades de Medida em CSS</a></li>
+        <li><a href="variables-functions.html">Variáveis e Funções em CSS</a></li>
+        <li><a href="fonts-texts.html">Fontes em CSS</a></li>
+        <li><a href="border-outline.html">Borders e Outlines em CSS</a></li>
+        <li><a href="backgrounds.html">Backgrounds em CSS</a></li>
+        <li><a href="images.html">Imagens em CSS</a></li>
+        <li><a href="lists.html">Listas em CSS</a></li>
+        <li><a href="tables.html">Tabelas em CSS</a></li>
+        <li><a href="forms.html">Formulários em CSS</a></li>
+        <li><a href="visual-efects.html">Efeitos Visuais em CSS</a></li>
+        <li><a href="scroll-one-page.html">Efeitos do scroll em CSS (<small>site one page</small>)</a></li>
+        <li><a href="scroll-snap-slides.html">Ajustes do Scroll (<small>Slides</small>)</a></li>
+        <li><a href="motion.html">Movimento em CSS</a></li>
+      </ul>
+    </section>
+    <hr>
+
+    <article id="seletores-basicos">
+      <h2>Seletores Básicos</h2>
+      
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores error corporis tenetur debitis numquam et veritatis praesentium consequuntur! Temporibus laudantium obcaecati necessitatibus mollitia in, animi voluptatem dignissimos atque consequuntur vitae?
+      </p>
+      <p id="paragrafo-dois">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt est enim tempore aliquid iusto cumque ratione rem incidunt minus, neque veritatis illum deserunt itaque minima! Placeat dolores dignissimos est reprehenderit?
+      </p>
+      <p class="font-32 bg-steelblue">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt est enim tempore aliquid iusto cumque ratione rem incidunt minus, neque veritatis illum deserunt itaque minima! Placeat dolores dignissimos est reprehenderit?
+      </p>
+      <p class="font-20 bg-orangered text-white">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt est enim tempore aliquid iusto cumque ratione rem incidunt minus, neque veritatis illum deserunt itaque minima! Placeat dolores dignissimos est reprehenderit?
+      </p>
+      <p class="font-21 bg-orangered">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis fuga quisquam possimus quis quas exercitationem. Ad eveniet dolores similique. Ex omnis mollitia dolorem possimus expedita ullam obcaecati quibusdam ad nobis.
+      </p>
+      
+      <a href="#indice">☝️</a>
+    </article>
+    <hr>
+
+    <article id="seletores-avancados">
+      <h2>Seletores Avançados</h2>
+      
+      <h3>Seletores de Filhos</h3>
+      <h4>Seletores de Filhos Diretos</h4>
+      <p>Os filhos diretos são os seletores com maior hierarquia após o seletor primário</p>
+      <ul class="filhos-diretos">
+        <li><b>Primavera</b></li>
+        <li><b>Verão</b></li>
+        <li><b>Outono</b></li>
+        <li><b>Inverno</b></li>
+      </ul>
+      <h4>Seletores de Filhos Descendentes</h4>
+      <p>Os filhos descendentes são quaisquer seletores com hierarquia menor que o seletor primário</p>
+      <ul class="filhos-descendentes">
+        <li><b>Primavera</b></li>
+        <li><b>Verão</b></li>
+        <li><b>Outono</b></li>
+        <li><b>Inverno</b></li>
+      </ul>
+
+      <h3>Seletor de Irmãos</h3>
+      <h4>Seletor de irmãos(em geral)</h4>
+      <ul>
+        <li><b>Primavera</b></li>
+        <li class="irmaos-geral"><b>Verão</b></li>
+        <li><b>Outono</b></li>
+        <li><b>Inverno</b></li>
+      </ul>
+      <h4>Seletor de irmãos adjacente</h4>
+      <ul>
+        <li><b>Primavera</b></li>
+        <li class="irmaos-adjacente"><b>Verão</b></li>
+        <li><b>Outono</b></li>
+        <li><b>Inverno</b></li>
+      </ul>
+
+      <h3>Seletor de Atributos</h3>
+      <nav class="seletores-atributos">
+        <ul>
+          <li><a class="menu item inicio button" href="https://jonmircha.com">Pagina Inicial</a></li>
+          <li><a class="menu-item cursos button" href="http://jonmircha.com/cursos">Cursos</a></li>
+          <li><a class="menu-item blog button" href="http://jonmircha.com/blog">Blog</a></li>
+          <li><a href="https://jonmircha.com/hola">CV</a></li>
+          <li><a href="#indice">Índice</a></li>
+        </ul>
+      </nav>
+
+      <h3>Seletor Universal</h3>
+      <ul class="seletor-universal">
+        <li><b>Primavera</b></li>
+        <li><b>Verão</b></li>
+        <li><b>Outono</b></li>
+        <li><b>Inverno</b></li>
+      </ul>
+
+      <a href="#indice">☝️</a>
+    </article>
+    <hr>
+
+    <article id="pseudoclasses">
+      <h2>Pseudoclasses</h2>
+      <form class="form-pseudoclasses">
+        <input type="text" name="nome" placeholder="Escreva seu nome" required>
+        <br>
+        <input type="text" name="email" placeholder="Escreva seu email" required autocomplete="off">
+        <br>
+        <input type="submit">
+      </form>
+
+      <!-- PSEUDOCLASSES DE ESTADO: QUANDO ELAS FALAM SOBRE INTERAÇÕES -->
+      <nav class="menu-pseudoclasses">
+        <a href="#link1">Link 1</a>
+        <a href="#link2">Link 2</a>
+        <a href="#link3">Link 3</a>
+        <a href="#link4">Link 4</a>
+      </nav>
+      <p class="parag-pseudoclasses">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dignissimos obcaecati dolore ab optio corporis necessitatibus, eius nobis accusantium odio, officiis non incidunt tenetur distinctio accusamus eligendi, sint repellendus voluptatum!</p>
+
+      <!-- PSEUDOCLASSES DE LUGAR E TIPO: QUANDO ELAS FALAM DO SEU POSICIONAMENTO NO CÓDIGO -->
+      <article class="article-pseudoclasses">
+        <li>Messi</li>
+        <li>Cristiano Ronaldo</li>
+        <li>Neymar</li>
+        <li>Suarez</li>
+        <li>Lewandowski</li>
+        <li>Benzema</li>
+        <li>Modric</li>
+        <li>Xavi</li>
+        <li>Iniesta</li>
+        <li>Salah</li>
+        <li>Courtois</li>
+        <li>Ter Stegen</li>
+        <br>
+        <header>Isso é um header</header>
+        <p>Isso é um paragrafo</p>
+        <section>Isso é uma section</section>
+        <p>Isso é um paragrafo</p>
+        <div>Isso é uma div</div>
+        <p>Isso é um paragrafo</p>
+        <footer class="footer-article-pseudoclasses">Isso é um footer</footer>
+      </article>
+
+      <a href="#indice">☝️</a>
+    </article>
+    <hr>
+
+    <article id="pseudoelementos">
+      <h2>Pseudoelementos</h2>
+      <p>
+        <i class="bordao-barcelona">Mès que un club</i> <span class="nome-barcelona">FC Barcelona</span>
+      </p>
+      <p class="paragrafo-pseudoelementos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptate nemo optio, asperiores corrupti nisi molestias a quidem nobis assumenda corporis accusamus neque, mollitia provident adipisci veniam reprehenderit dolores. Accusantium.</p>
+
+      <a href="#indice">☝️</a>
+    </article>
+    <hr>
+
+    <article id="agrupando-seletores">
+      <h2>Agrupando Seletores</h2>
+      <form class="form-agrupando-seletores">
+        <input type="text" name="nome" placeholder="Escreva seu nome">
+        <input type="email" name="email" placeholder="Escreva seu email">
+        <textarea name="comentarios" cols="30" rows="10" placeholder="Caixa de comentários"></textarea>
+        <input type="submit">
+      </form>
+
+      <a href="#indice">☝️</a>
+    </article>
+    <hr>
+
+    <article id="normalize">
+      <h2>Normalize</h2>
+      <p>O normalize serve para que a sua página seja padronizada para todos os navegadores. É importante colocar ela antes do seu arquivo de style.css</p>
+      <a href="#indice">☝️</a>
+    </article>
+    <hr>
+
+  </body>
+</html> 

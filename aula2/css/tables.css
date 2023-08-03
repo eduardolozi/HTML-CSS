@@ -1,0 +1,11 @@
+.table {
+  font-size: 3rem;
+  border-collapse: collapse; /*SERVE PARA QUE OS BORDES NAO TENHAM ESPAÇOS ENTRE ELES*/
+}
+
+table,
+td,
+th {
+  border: black solid medium;
+  
+}

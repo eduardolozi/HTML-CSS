@@ -1,0 +1,141 @@
+/* 
+Unidades de Medida
+  1) Absolutas (Su valor no cambia, son unidades del mundo real)
+    (MELHOR USAR PARA SITES QUE DEVEM SER IMPRESSOS)
+    (NO ENTANTO, PARA A TAG BODY USAR O PX PARA O FONT SIZE (DEFALUT: 16PX))
+    pc, cm, mm, in, Q
+    pt (1/72in)
+    px (1/96in)
+  2) Relativas (Su valor es relativo a un contexto)
+    (PARA A TIPOGRAFIA É RECOMENDADO REM POIS TOMA COMO BASE O FONT SIZE DA TAG HTML)
+    em, rem, ex, ch - al tamaño de la fuente
+      em - basada en la anchura de la "m" de la fuente del elemento, se ele nao definir o tamanho da fonte do elemento, ele buscar no ancestral
+      rem -  basada en la anchura de la "m" de la fuente del elemento raíz (html)
+      ex - basada en la altura de la "x" de la fuente del elemento
+      ch - basada en la anchura del "0" de la fuente del elemento
+
+    % - al tamaño del contenedor
+    
+    vw, vh, vmin, vmax - al tamaño del viewport
+      vw - ancho del viewport van de 1 a 100
+      vh - alto del viewport van de 1 a 100
+      vmax - entre vw y vh toma el que tenga mayor valor
+      vmin - entre vw y vh toma el que tenga menor valor
+      
+  Conversiones entre unidades - https://pxtoem.com/
+
+
+    (PARA A TAG BODY USAR O PX PARA O FONT SIZE (DEFALUT: 16PX))
+    (PARA A TIPOGRAFIA É RECOMENDADO REM POIS TOMA COMO BASE O FONT SIZE DA TAG HTML)
+    (PARA MARGINS, PADDINGS E AFINS E USAR REM OU EM)
+    (O EM É LEGAL QUANDO UMA SEÇÃO TENHA QUE TER VARIOS CARDS, BUTÕES E ETC COM DISTANCIAS E TAMANHOS PROPORCIONAIS)
+    (O EX É LEGAL PARA ALGUMA DESCRIÇAO QUE VOCE SAIBA QUANTAS LINHAS MAXIMAS VAI TER EM ALGUM CONTAINER, POR EXEMPLO ALGUM CARD)
+    (O CH É LEGAL PARA ELEMENTOS DE FORMULARIOS, POIS VOCE PODE DELIMITAR COM QUANTOS CARACTERES AQUILO VAI FICAR)
+    (AS PORCENTAGENS SÃO BOAS PARA O TAMANHO DE ELEMENTOS, PARA ATENDER COISAS DE RESPONSIVE)
+    (AS UNIDADES DE VIEWPORT SAO BOAS PARA DESENHOS OU TEXTOS FLUIDOS)
+*/
+
+html {
+  background-color: black;
+}
+
+body {
+  background-color: blanchedalmond;
+  margin: 0; 
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.pixels {
+  background-color: cadetblue;
+  width: 500px;
+  height: 400px;
+  padding: 20px;
+  font-size: 32px;
+  border: 5px solid rebeccapurple;
+}
+
+.ems {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1em 0.5em;
+  border: 5px solid rebeccapurple;
+}
+
+.em-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5em;
+  padding: 1em;
+  font-size: 2em;
+}
+
+.rems {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1rem 0.5rem;
+  border: 5px solid rebeccapurple;
+}
+
+.rem-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.exs {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1ex 0.5ex;
+  border: 5px solid rebeccapurple;
+}
+
+.ex-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5ex;
+  padding: 1ex;
+  font-size: 2ex;
+}
+
+.chs {
+  background-color: cadetblue;
+  width: 10ch;
+}
+
+.percentages {
+  background-color: darkkhaki;
+  padding: 5%;
+  margin: 20% 10%;
+  width: 80%;
+  font-size: 100%;
+  height: 100%;
+}
+
+.height-parent {
+  background-color: brown;
+  width: 500px;
+  height: 500px;
+}
+
+.height-child {
+  background-color: coral;
+  width: 50%;
+  height: 50%;
+}
+
+.viewport {
+  background-color: darkgreen;
+  color: white;
+  /* Importante lembrar que a tag body tem margin por defeito e que as rollbars do navegador também fazem parte da viewport */
+  height: 100vh;
+  width: 100vw;
+  width: 100%;
+  font-size: 4vh;
+}

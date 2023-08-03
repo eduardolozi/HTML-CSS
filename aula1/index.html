@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título - 55 a 65 caracteres -->
+  <title>Aprendendo HTML</title>
+  <!-- Descrição - Até 165 caracteres -->
+  <meta name="description" content="Essa é uma descrição dessa página">
+  <style>
+    html{
+      scroll-behavior: smooth;
+    }
+    h2{
+      color: orangered;
+    }
+  </style>
+  <link rel="icon" href="assets/favicon1.png">
+  <link rel="apple-touch-icon" href="assets/favicon1.png"> <!-- isso serve para favicons em celulares -->
+  <meta name="theme-color" content="#FF6600">
+  <meta property="og:title" content="Aprendendo HTML">
+  <meta property="og.description" content="Estou aprendendo desenvolvimento WEB e esse é o meu início.">
+  <meta property="og:url" content="https://teudominio.com/">
+  <meta property="og:image" content="https://teudominio.com/assets/tabperiodica.png">
+</head>
+<body>
+  <!-- Comentario de uma linha ctrl K + ctrl c -->
+  <!--
+    Comentarios de mais de uma linha:
+    Shift + ALT + a
+  -->
+
+  <h1 id="inicio">HTML BÁSICO</h1>
+  <hr>
+
+  <h2>Índice</h2>
+  <ul>
+    <li>
+      <h3><a href="#tags-basicas">Tags de texto básicas</a></h3>
+    </li>
+    <li>
+      <h3><a href="#tags-semanticas">Tags de texto semânticas</a></h3>
+    </li>
+    <li>
+      <h3><a href="#tags-formatacao">Tags de formatação</a></h3>
+    </li>
+    <li>
+      <h3><a href="#tags-estruturais">Tags semânticas estruturais</a></h3>
+    </li>
+    <li>
+      <h3><a href="#tags-linha-bloco">Tags de linha e de bloco</a></h3>
+    </li>
+    <li>
+      <h3><a href="#tag-img">Tag de imagem</a></h3>
+    </li>
+    <li>
+      <h3><a href="#lista-ordenada">Lista ordenada</a></h3>
+    </li>
+    <li>
+      <h3><a href="#lista-desordenada">Listas desordenada</a></h3>
+    </li>
+    <li>
+      <h3><a href="#lista-definicao">Listas de definição</a></h3>
+    </li>
+    <li>
+      <h3><a href="#tabelas">Tabelas</a></h3>
+    </li>
+    <li>
+      <h3><a href="#links">Links</a></h3>
+    </li>
+    <li>
+      <h3><a href="#elementos-interativos">Elementos interativos</a></h3>
+    </li>
+    <li>
+      <h3><a href="#audio-video">Áudios e Vídeos</a></h3>
+    </li>
+    <li>
+      <h3><a href="#iframes">Iframes</a></h3>
+    </li>
+    <li>
+      <h3><a href="#forms">Formulários</a></h3>
+    </li>
+  </ul>
+  <hr>
+
+  <h2 id="tags-basicas">Tags de texto básicas</h2>
+  <p>
+    Estas são algumas tags de modificação de texto:
+    <br>
+    <b>negrito</b>
+    <br>
+    <i>itálico</i>
+    <br>
+    <small>letras pequenas</small>
+    <br>
+    E = mc<sup><small>2</small></sup>
+    <br>
+    H<sub><small>2</small></sub>O
+  </p>
+  <a href="#inicio">☝️</a>
+  <hr> <!-- Essa tag serve para dar um salto semântico de conteúdo na nossa página. Então, quando quisermos separar diferentes seções, podemos usar o <hr> -->
+  
+  <h2 id="tags-semanticas">Tags de texto semânticas</h2>
+  <p>
+    Estas são algumas tags de texto semânticas:
+    <br>
+    <strong>Este texto é importante, podemos usar strong</strong>
+    <br>
+    <em>Este texto faz ênfase</em>
+  </p>
+  <a href="#inicio">☝️</a>
+  <hr>
+  
+  <h2 id="tags-formatacao">Tags de Formatação</h2>
+  <p>
+    <pre>
+      A tag &lt;pre&gt; faz com que o texto que seja escrito no parágrafo formatado como está escrito no código
+        Aqui, eu nao dei &lt;br&gt; para pular linha
+          A tabulação também é formatada
+            Posso escrever como quiser mesmo dentro de um parágrafo
+              Mas a fonte fica diferente dentro do lt;pre&gt;
+    </pre>
+    <pre>
+      <code>
+      A tag code é usada para escrever códigos
+      E é usada dentro da tag &lt;pre&gt; para deixar o código formatado bem bonitinho!
+        int main() {
+          printf("Olá mundo!\n");
+          return 0;
+        }
+      </code>
+    </pre>
+  </p>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="tags-estruturais">Tags semânticas estruturais</h2>
+  <div> Div é uma tag conainer que não possui semântica</div>
+  <header>Header é uma tag para o cabeçalho</header>
+  <nav>Nav é uma tag para menus de navegação</nav>
+  <main>Main é uma tag para indicar que esse conteúdo é o mais importante da página <strong>(só pode ter uma main por página)</strong></main>
+  <article>Article é uma tag para uma seção do site que seja independente (posts por exemplo)</article>
+  <section>Section é uma tag para indicar uma seção de conteúdo (seção dos posts por exemplo)</section>
+  <aside>Aside é uma tag para indicar conteúdos em segundo plano (posts relacionados, propagandas)</aside>
+  <footer>Footer é uma tag para indicar o rodapé</footer>
+  <address>Address é uma tag para indicar um local ou informações de contato</address>
+  <img src="assets/tags-estruturais-html.gif" alt="Imagem que mostra o design de uma página através das tags estruturais">
+  <!-- <img src="https://www.macoratti.net/Cursos/html5/html5_62.gif" alt="Imagem que mostra o design de uma página através das tags estruturais"> -->
+  <br>
+  <a href="#inicio">☝️</a>
+  <hr>
+  
+  <h2 id="tags-linha-bloco">Tags de Linha e de Bloco</h2>
+  <span style="background-color: aqua;"> Uma tag de linha não vai fazer saltos de linha em cima e embaixo. Além disso, ela ocupa apenas o seu espaço. </span>
+  <span>Oi eu sou outro span</span>
+  <div style="background-color: yellow;">Uma tag de bloco vai fazer saltos de linha em cima e embaixo. Além disso, ela ocupa toda a largura da sua linha.</div>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="tag-img">Tag de Imagem</h2>
+  <img src="assets/tabperiodica.png" alt="Tabela periódica das tags html">
+  <br>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="lista-ordenada">Lista Ordenada</h2>
+  <h3>As estações do ano</h3>
+  <ol>
+    <li>Primavera</li>
+    <li>Verão</li>
+    <li>Outono</li>
+    <li>Inverno</li>
+  </ol>
+
+  <ol start="3">
+    <li>Primavera</li>
+    <li>Verão</li>
+    <li>Outono</li>
+    <li>Inverno</li>
+  </ol>
+  
+  <ol reversed>
+    <li>Primavera</li>
+    <li>Verão</li>
+    <li>Outono</li>
+    <li>Inverno</li>
+  </ol>
+  
+  <ol type="a">
+    <li>Primavera</li>
+    <li>Verão</li>
+    <li>Outono</li>
+    <li>Inverno</li>
+  </ol>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="lista-desordenada">Listas Desordenadas</h2>
+  <h3>Coisas por fazer</h3>
+  <ul>
+    <li>Arrumar a cama</li>
+    <li>Fazer café</li>
+    <li>Estudar HTML e CSS</li>
+  </ul>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="lista-definicao">Listas de Definição</h2>
+  <dl>
+    <dt>Leo Messi</dt>
+    <dd>Ganhador de 7 bolas de ouro.</dd>
+    <dt>Cristiano Ronaldo</dt>
+    <dd>Ganhador de 5 bolas de ouro.</dd>
+    <dt>Neymar</dt>
+    <dd>Ganhador de 0 bolas de ouro.</dd>
+  </dl>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="tabelas">Tabelas</h2>
+  <table>
+    <tr>
+      <td>Nome</td>
+      <td>Time</td>
+      <td>Nacionalidade</td>
+    </tr>
+    <tr>
+      <td>Leo Messi</td>
+      <td>PSG</td>
+      <td>Argentina</td>
+    </tr>
+    <tr>
+      <td>Cristiano Ronaldo</td>
+      <td>Al Nassr</td>
+      <td>Portugal</td>
+    </tr>
+    <tr>
+      <td>Lewandowski</td>
+      <td>FC Barcelona</td>
+      <td>Polônia</td>
+    </tr>
+  </table>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3">Jogadores de Futebol</th>
+      </tr>
+      <tr>
+        <th>Nome</th>
+        <th>Time</th>
+        <th>Nacionalidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td>Leo Messi</td>
+      <td>PSG</td>
+      <td>Argentina</td>
+    </tr>
+    <tr>
+      <td>Cristiano Ronaldo</td>
+      <td>Al Nassr</td>
+      <td>Portugal</td>
+    </tr>
+    <tr>
+      <td>Lewandowski</td>
+      <td rowspan="2">FC Barcelona</td>
+      <td>Polônia</td>
+    </tr>
+    <tr>
+      <td>Ter Stegen</td>
+      <td>Alemanha</td>
+    </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="3"><small>Esse é o rodapé da tabela</small></th>
+      </tr>
+    </tfoot>
+  </table>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="links">Links</h2>
+  <p>Os links são tags de linha</p>
+  <p>Eu sou um <a href="oi.html">link</a></p>
+  <a href="https://www.google.com" target="_blank" rel="nofollow">Esse link abre uma nova aba</a> 
+  <p>A imagem abaixo é um link para o youtube</p>
+  <a href="https://www.youtube.com" target="_blank" rel="nofollow">
+    <img src="assets/youtube-168-svgrepo-com.svg" alt="Simbolo do YouTube" width="40" height="30">
+  </a>
+  <p>Podemos colocar como link API's com serviços de mensagens como:</p>
+  <ul>
+    <li><a href="mailto:eduardoellozi2022@gmail.com" target="_blank">Email</a></li>
+    <li><a href="tel:5562912345678" target="_blank">Telefone</a></li>
+    <li><a href="https://api.whatsapp.com/send?phone=5562912345678&text=Olá, quero marcar consulta!" target="_blank">WhatsApp</a></li>
+  </ul>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="elementos-interativos">Elementos Interativos</h2>
+  <button>Apertar</button>
+  <details>
+    <summary>FC Barcelona</summary>
+    <p>Ter Stegen</p>
+    <p>Alejandro Balde</p>
+    <p>Ronald Arújo</p>
+    <p>Jules Koundé</p>
+    <p>Andreas Christensen</p>
+    <p>Sergio Busquets</p>
+    <p>Pedri</p>
+    <p>Frenkie De Jong</p>
+    <p>Raphinha</p>
+    <p>Lewandowski</p>
+    <p>Dembélé</p>
+  </details>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="audio-video">Áudios e Vídeos</h2>
+  <p>Não vou colocar nada neles, mas as tags estão definidas</p>
+  <audio src="" controls preload></audio>
+  <br>
+  <video src="" controls preload=""></video>
+  <br>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="iframes">Iframes</h2>
+  <p>Servem para visualizar um conteúdo externo na página</p>
+  <p>Podemos usar pro Google Maps, YouTube, PDFs</p>
+  <iframe src="assets/trilha-back.pdf" frameborder="0"></iframe>
+  <br>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+  <h2 id="forms">Formulários</h2>
+  <h3>Elementos de Formulários</h3>
+  <input type="text">
+  <br>
+  <input type="checkbox">
+  <br>
+  <input type="date">
+  <br>
+  <input type="radio">
+  <br>
+  <input type="submit">
+  <br>
+  <input type="button" value="Ok">
+  <br>
+  <input type="file" multiple>
+  <br>
+  <input type="password">
+  <br>
+  <textarea cols="20" rows="5"></textarea>
+  <br>
+  <select name="" id="" multiple>
+    <option value="">HTML</option>
+    <option value="">CSS</option>
+    <option value="">JS</option>
+  </select>
+  <br>
+
+  <h3>Exemplo de Formulários</h3>
+  <h4>Formulário de Login</h4>
+  <form action="oi.html" method="post">
+    <label for="usuario">Usuario: </label>
+    <br>
+    <input type="text" name="usuario" id="usuario" placeholder="Usuário">
+    <br><br>
+    <label for="senha">Senha: </label>
+    <br>
+    <input type="password" name="senha" id="senha" placeholder="Senha" autocomplete="off">
+    <br><br>
+    <input type="submit">
+    <input type="reset">
+  </form>
+
+  <h4>Selects, radios e checkboxes</h4>
+  <form action="">
+    <select name="idioma" id="selection-language" required>
+      <option value="">Escolha um idioma</option>
+      <option value="pt-BR">Português</option>
+      <option value="es">Espanhol</option>
+      <option value="en">Inglês</option>
+      <input type="submit">
+      <input type="reset">
+    </select>
+
+    <br><br>
+    
+    <p>Escolha o seu melhor jogador do mundo</p>
+    <input type="radio" name="melhor-jogador" id="messi" value="messi">
+    <label for="messi">Messi</label>
+    <br>
+    <input type="radio" name="melhor-jogador" id="haaland" value="haaland">
+    <label for="haaland">Haaland</label>
+    <br>
+    <input type="radio" name="melhor-jogador" id="vini-jr" value="messi">
+    <label for="vini-jr">Vinicius Jr</label>
+    <br><br>
+    <input type="submit">
+    <input type="reset">
+
+    <br><br>
+
+    <p>Escolha seus interesses</p>
+    <label>
+      <input type="checkbox" name="interesses" value="fut">
+      Futebol
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" name="interesses" value="pol">
+      Política
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" name="interesses" value="eco">
+      Ecologia
+    </label>
+    <br><br>
+    <input type="submit">
+    <input type="reset">
+
+    <br><br>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos facere quos beatae, autem impedit hic quibusdam iste fugiat saepe, tempora quaerat qui. Dolore, ad placeat? Aut vero quis cum assumenda! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, accusamus ea officia repudiandae fuga mollitia dignissimos asperiores et aut? Dolore similique doloremque sed aliquam. Omnis laborum temporibus quaerat natus repellendus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perspiciatis quis eaque autem hic fugit eius corrupti amet itaque totam optio, quos rem dolor aliquam necessitatibus velit, ea enim. Pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, at veritatis iure fugiat quis et eligendi assumenda nam magnam ut eveniet illum culpa explicabo? Illo a quaerat vel nemo magni?</p>
+    <label>
+      <input type="checkbox" name="termos-condicoes" required>
+      Aceitar Termos e Condições
+    </label>
+    <br><br>
+    <input type="submit">
+  </form>
+
+  <br><br>
+
+  <h4>Formulário de Contato</h4>
+  <form action="https://formsubmit.co/eduardoellozi2022@gmail.com" method="post">
+    <input type="text" name="nome" placeholder="Informe o nome" required>
+    <br>
+    <input type="email" name="email" placeholder="Informe o email" required>
+    <br>
+    <textarea name="comentario" cols="30" rows="5" placeholder="Comentario..."></textarea>
+    <br>
+    <input type="submit">
+  </form>
+
+  <br>
+  <a href="#inicio">☝️</a>
+  <hr>
+
+
+</body>
+</html>

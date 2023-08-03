@@ -1,0 +1,85 @@
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  border: thick black solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+}
+
+.card {
+  height: 400px;
+  width: 600px;
+  border: thick black solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 50%;
+}
+
+/* 
+TRANSITIONS:
+  transition-property
+  transition-duration
+  transition-timing-function: none linear ease ease-in ease-out ease-in-out steps
+  transition-delay
+  transition: property duration timing-fuction delay
+*/
+
+.transitions .box {
+  background-color: magenta;
+  transition-property: background-color;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  transition-delay: 100ms;
+  transition: border-color 500ms linear 200ms,
+              background-color 2s ease 100ms, 
+              border-radius 500ms linear 200ms;
+  
+}
+
+.transitions .box:hover {
+  background-color: cyan;
+  border-color: red;
+  border-radius: 2rem;
+}
+
+/* PODEMOS FAZER QUE VARIAS TRANSIÇÕES OCORRAM COLOCANDO ELAS SEPARADAS POR VIRGULAS*/
+.transitions .card {
+  transition: opacity 500ms ease,
+              box-shadow 2s ease;
+}
+
+.transitions .card:hover {
+  filter: blur(4px);
+  border-color: orchid;
+  opacity: .80;
+  box-shadow: 2rem 2rem 2rem 0.5rem black;
+}
+
+.transitions .card img {
+  transition: object-position 3s ease-in-out 500ms;
+}
+
+.transitions .card img:hover {
+  object-position: 0% 50%;
+}

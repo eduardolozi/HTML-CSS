@@ -1,0 +1,244 @@
+/* 
+  SELETORES BÁSICOS:
+    -> Tags
+    -> Id's - # (não recomendados)
+    -> Classes - .
+*/
+
+html{
+  scroll-behavior: smooth;
+}
+
+p{
+  color: midnightblue;
+}
+
+/* Não recomendado */
+#paragrafo-dois{
+  background-color: skyblue;
+}
+
+.bg-steelblue{
+  background-color: steelblue;
+}
+
+.bg-orangered{
+  background-color: orangered;
+}
+
+.font-32{
+  font-size: 32px;
+}
+
+.font-20{
+  font-size: 20px;
+}
+
+
+.text-white{
+  color: white;
+}
+
+/* ----------------------------------------------------------------------------- */
+
+/* Para filhos diretos usamos o > */
+.filhos-diretos > li{
+  background-color: thistle;
+}
+
+/* Para filhos descendentes só precisamos dar espaço (todos os que estiverem dentro da classe). Nesse caso, os <b> dentro de <ul> */
+.filhos-descendentes b{
+  background-color: thistle;
+}
+
+/* Para irmaos em geral, é aplicado para todos os irmãos após o referenciado pela classe */
+.irmaos-geral ~ li{
+  background-color: thistle;
+}
+
+/* Para irmaos adjacentes, é aplicado apenas para o irmao após a referencia da classe */
+.irmaos-adjacente + li{
+  background-color: thistle;
+}
+
+/* Seleciona todos que possuem o atributo*/
+.seletores-atributos a[href]{
+  color: orangered;
+}
+
+.seletores-atributos a[target="_blank"]{
+  font-weight: bold;
+}
+
+/* O * seleciona todos que tiverem jonmircha em href*/
+.seletores-atributos a[href*="jonmircha"]{
+  font-size: 24px;
+}
+
+/* O ^ seleciona todos que começarem em http:// */
+.seletores-atributos a[href^="http://"] {
+  text-decoration: none;
+
+}
+
+/* O $ seleciona todos que terminarem em .com */
+.seletores-atributos a[href$=".com"] {
+  background-color: black;
+}
+
+/* O ~ seleciona se o atributo tiver a palavra em uma lista de palavras separadas por espaços */
+.seletores-atributos a[class~="cursos"] {
+  background-color: midnightblue;
+}
+
+/* O | seleciona se o atributo tiver a palavra em uma lista de palavras separadas por espaços e que depois do texto em questao venha um "-" */
+.seletores-atributos a[class~="menu-item"] {
+  font-style: italic;
+}
+
+/* Seletor Universal */
+* {
+  font-family: sans-serif;
+}
+
+/* Também podemos usar o seletor universal para atingir todas as tags dentro de um determinado espaço, nesse caso dentro da tag com classe chamada seletor-universal */
+.seletor-universal * {
+  font-size: 24px;
+}
+
+/* PSEUDOCLASSES:Dão estilo dependendo do estado, posição ou contecxto do elemento */
+
+/* PSEUDOCLASSES DE ESTADO */
+.form-pseudoclasses *:required{ /* Lembrar: o espaço entre a classe e o outro elemento precedido por asterisco quer dizer que todos(*) os elementos dentro(espaço em branco) da classe são incluidos */
+  border-color: yellow;
+}
+
+.form-pseudoclasses *:valid{
+  border-color: green;
+}
+
+.form-pseudoclasses *:invalid{
+  border-color: red;
+}
+
+.form-pseudoclasses *:focus{
+  background-color: skyblue;
+}
+
+.menu-pseudoclasses a:visited{
+  color: olive;
+}
+
+.menu-pseudoclasses a:hover{
+  color: orange;
+}
+
+.parag-pseudoclasses:hover{
+  font-size: 20px;
+}
+
+/* A pseudoclasse target acontece quando na url, o id aparece, por exemplo quando clicamos num link da pagina e ele scrolla ate o indice, nesse caso na url vai ter #indice, esse é o target */
+#indice:target{
+  background-color: greenyellow;
+}
+
+/* PSEUDOCLASSES DE LUGAR E TIPO */
+/* LUGAR: */
+.article-pseudoclasses li:first-child{
+  color: gold;
+}
+
+.article-pseudoclasses li:last-child{
+  color: greenyellow;
+}
+
+.article-pseudoclasses li:nth-child(4n){ /* de 4 em 4 */
+  font-weight: bold;
+}
+
+.article-pseudoclasses li:nth-child(even){ /* even: par // odd: impar */
+  background-color:aquamarine ;
+} 
+
+/* TIPO: */
+.article-pseudoclasses p:first-of-type{
+  color: red;
+}
+
+.article-pseudoclasses p:last-of-type{
+  color: fuchsia;
+}
+
+.article-pseudoclasses *:not(p, .footer-article-pseudoclasses, li) {
+  background-color: blueviolet;
+}
+
+/* PSEUDOELEMENTOS: REFERENCIAM UMA PARTE DO ELEMENTO EM QUESTÃO */
+.bordao-barcelona::before{
+  content: "->";
+  font-weight: bold;
+}
+
+.nome-barcelona::after{
+  content: "!!!!";
+  font-weight: bold;
+}
+
+.paragrafo-pseudoelementos::first-letter{
+  font-size: 24px;
+  color: blue;
+  font-weight: bolder;
+}
+
+.paragrafo-pseudoelementos::first-line{
+  background-color: aquamarine;
+}
+
+*::selection{ 
+  background-color: orangered;
+  color: white;
+}
+
+/* AGRUPANDO SELETORES */
+.form-agrupando-seletores input[type="text"],
+.form-agrupando-seletores input[type="email"],
+.form-agrupando-seletores textarea
+{
+  border-color: yellow;
+  background-color: black;
+  display: block;
+  width: 300px;
+  border-width: 2px;
+}
+
+/* 
+El Algoritmo de CSS: Es la forma en que el navegador aplica los estilos al documento HTML. Es vital entender este concepto para que entiendas como se aplican y en algunas ocasiones se sobreescriben las reglas CSS.
+  1) La Cascada.
+  2) La Especificidad.
+  3) La Herencia.
+La Cascada es el mecanismo en que el navegador aplica los estilos. Y toma en cuenta lo siguiente en este orden:
+  1) El Origen del Código:
+    - El User Agent (los estilos por defecto del navegador)
+    - Personalizaciones del usuario.
+    - Los estilos del autor.
+  2) La Especificidad del Selector
+  3) Orden de Aparición
+La Especificidad es el peso que tiene un selector cuando hay conflicto de estilos. Se calcula de la siguiente forma:
+  Etiquetas y pseudoelementos -------------- 0,0,0,1
+  Clases, atributos y pseudoclases ------------0,0,1,0
+  Identificadores -------------------------------0,1,0,0
+  Estilos en línea--------------------------------1,0,0,0
+  !important ------------------Rompe la especificidad
+
+La Herencia, es la capacidad de un selector de obtener (heredar) los valores de sus ancestros más cercanos, para aplicarla se usa el valor inherit, si queremos evitarla podemos asignar otro valor o inicializar la propiedad en cuestión con el valor initial
+https://web.dev/learn/css/inheritance/#which-properties-are-inheritable
+*/
+
+/*
+PREFIXOS DOS NAVEGADORES:
+EX:
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+*/

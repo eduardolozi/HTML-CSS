@@ -1,0 +1,61 @@
+body{
+  margin: 0;
+}
+
+/* HEADER FIXED OU STICKY */
+.header {
+  background-color: coral;
+  width: 100%;
+  height: 50px;
+}
+
+/* COMO O FIXED FAZ O ELEMENTO NAO RESPEITAR A FILA DE ELEMENTOS HTML, PODE SER QUE O CABEÇALHO ENGULA PARTE DO PROXIMO CONTEUDO, PARA    ISSO TEMOS QUE COLOCAR UM PADDING-TOP COM O VALOR DO HEIGHT DO CABEÇALHO NO ELEMENTO QUE ELE ESTÁ TAPANDO 
+  ALEM DISSO, O FIXED FAZ QUE A CAIXA PERCA SUAS DIMENSOES ORIGINAIS, ENTAO É IMPORTANTE QUE SEJAM DEFINIDAS AS DIMENSOES APOS O USO DO FIXED
+*/
+.fixed-top { 
+  position: fixed;
+  top: 0;
+}
+
+
+/* O STICKY NAO VAI ENGOLIR O PROXIMO ELEMENTO HTML, ENTAO PODEMOS COLOCAR O HEADER COMO A PRIMEIRA COISA DO BODY SEM PRECISAR MEXER NA PROXIMA TAG. SE QUISESSEMOS COLOCAR O HEADER COM FIXED NO COMEÇO DO DOCUMENTO HTML, TERIAMOS QUE MODELAR O PADDING DO PROXIMO ELEMENTO*/
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* EFEITO DE SLIDES NOS TITULOS COM STICKY */
+.slide {
+  background-color: palegreen;
+  height: 100vh;
+}
+
+/* O STICKY TEM QUE RECEBER O VALOR QUE O HEIGHT DO HEADER TEM, JA QUE O HEADER TAMBEM VAI ESTAR FIXO NA TELA */
+.slide-title{
+  position: sticky;
+  background-color: burlywood;
+  top: 50px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 16px;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* VENTANA MODAL */
+.modal-content {
+  position: fixed;
+  top: 30%;
+  left: 20%;
+  width: 50%;
+  height: 50vh;
+  background-color: black;
+  opacity: 0.5;
+  display: none;
+}
+
+/* QUANDO O USUARIO CLICAR ONDE TEM O LINK PARA A JANELA MODAL, O TARGET VAI RECEBER O ID DA JANELA MODAL, SO ENTAO SERA COLOCADO O DISPLAY DIFERENTE DE NONE, PARA ELA APARECER NA TELA */
+.modal-content:target{
+  display: block;
+}
