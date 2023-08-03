@@ -3,6 +3,7 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 
 *,
@@ -83,3 +84,512 @@ TRANSITIONS:
 .transitions .card img:hover {
   object-position: 0% 50%;
 }
+
+/*
+  AS TRANSFORMAÇÕES PODEM SER 2D OU 3D
+  PARA ANIMAR AS TRANSFORMAÇOES PODEMOS USAR AS TRANSITIONS
+
+  -> TRANSFORMAÇOES 2D
+      - Translação (altera sua posição no viewport): usa como referencia o eixo X e Y do item
+      - Escala (altera o tamanho do item, sem achatar a imagem): usa em referencia o eixo X e o Y do item
+      - Rotação (Faz o elemento girar no seu eixo)
+      -Skew 
+
+  -> TRANSFORMAÇOES 3D (precisamos dar perspectiva ao elemento pai)
+      - Translação em Z (se afasta ou se aproxima, parecido à escala em 2D)
+      - Rotação (por causa da perspectiva, a rotação em X e Y muda e fica em 3d)
+
+  PODEMOS TER TRANSFORMAÇÕES MULTIPLAS, TANTO EM 2D ou 3D
+*/
+
+.transform-2d img {
+  transition: transform 2s ease-in-out; 
+}
+
+.transform-2d img:hover {
+  transform: translateX(50%);
+  transform: translateY(50%);
+  transform: translate(4rem, 4rem);
+  transform: scale(50%, 50%);
+  transform: rotateX(60deg);
+  transform: rotateY(60deg);
+  transform: rotateZ(60deg); 
+  transform: rotate(60deg); /* Em Rotate o shorthand atua sobre o eixo Z, entao tanto faz usar rotate ou rotateZ */
+  transform: skewX(30deg);
+  transform: skewY(30deg);
+  /* transform: skew(180deg, 180deg); */
+  transform: translate(30%, -50%) scale(50%, 50%);
+}
+
+.transform-3d {
+  perspective: 200rem;
+}
+
+.transform-3d img {
+  transition: transform 2s ease-in-out; 
+}
+
+.transform-3d img:hover {
+  transform: translateZ(-4rem);
+  transform: translate3d(2rem, 50%, -10rem);
+  transform: rotateY(180deg);
+  transform: rotateX(50deg);
+  transform: rotate3d(1, 1, 1, 60deg);
+}
+
+/* POR PADRAO O TRANSFORM ORIGIN É X:50% Y:50% Z:0 */
+.transform-origin img {
+  transition: transform 2s ease-in-out; 
+  transform-origin: 0 0;
+  transform-origin: top center;
+}
+
+.transform-origin img:hover {
+  transform: rotate(360deg);
+}
+
+.flip-card-1, .flip-card-2 {
+  height: 500px;
+  width: 500px;
+  border: thick rgb(231, 101, 123) solid;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+
+  position: relative;
+  cursor: pointer;
+  transition: transform 1s ease-in-out;
+  perspective: 10rem;
+  transform-style: preserve-3d;
+}
+
+.flip-card-2 {
+  transform-origin: center right
+}
+
+.flip-card-1:hover {
+  transform: rotateY(180deg);
+}
+
+.flip-card-2:hover {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.flip-card-1 img, .flip-card-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 50%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+}
+
+.texto-ana {
+  height: 50%;
+  width: 50%; 
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+   transition: transform 1s ease-in-out, color 1s ease-in-out;
+}
+
+.texto-ana:hover {
+  transform: scale(150%);
+  color: rgb(231, 101, 123);
+  
+}
+
+.flip-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* precisa de perspective, transfrom-style no elemento pai*/
+}
+
+.flip-front {
+  transform: rotateY(0deg);
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/*
+
+*/
+
+@keyframes myAwesomeAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+.my-animation {
+  /* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
+  animation-name: myAwesomeAnimation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+  animation-direction: normal;
+  animation-fill-mode: forwards; /*No final da animaçao, o item fica com os estilos do FROM do KeyFrame*/
+  animation-fill-mode: backwards; /*No final da animaçao, o item fica com os estilos do TO do KeyFrame*/
+  animation-fill-mode: both; /*No final da animaçao, o item fica com ambos*/
+  /* ANIMATION MULTIPLAS: animation: animation1 2s, animation2 2s... */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  font-size: 5rem;
+  animation: fadeIn 2s linear infinite alternate; 
+  /* O alternate faz que a transicao nao seja brusca */
+}
+
+.fade-out {
+  font-size: 5rem;
+  animation: fadeOut 2s linear infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(110%);
+  }
+
+  50% {
+    transform: scale(80%);
+  }
+
+  100% {
+    transform: scale(100%);
+  }
+}
+
+.pulse {
+  display: inline-block;
+  font-size: 5vw;
+  animation: pulse 1s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  width: 5vw;
+  height: 5vw;
+  border: 0.5vw solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09f;
+  border-radius: 50%;
+  animation: spinner 1s ease-out infinite;
+}
+
+.btn {
+  position: relative;
+  border: none;
+  border-radius: .25rem;
+  padding: .2rem;
+  width: 15rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: .25rem .25rem .5rem .25rem rgba(0, 0, 0, 0.15);
+
+}
+
+.anim-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: .25rem;
+  background-color: #d00;
+  transition: width 0.5s ease, left 0.5s ease, right 0.5s ease;
+}
+
+.anim-bottom:hover::after {
+  width: 100%;
+}
+
+.to-left::after {
+  left: 0;
+}
+
+.to-right::after {
+  right: 0;
+}
+
+.to-center::after {
+  left: 50%;
+}
+.to-center:hover::after {
+  left: 0;
+}
+
+.anim-bg-gradient {
+  background-image: linear-gradient(to right, pink, violet, orange, orangered);
+  background-size: 300% 100%;
+  transition: background-position 1s ease-in-out;
+}
+.anim-bg-gradient:hover {
+  background-position: 100% 0;
+}
+
+.tabs-menu {
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  background-color: #DDD;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 70%;
+  height: 3rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs-menu input[type="radio"] {
+  display: none;
+}
+
+.tabs-menu label{
+  width: calc(100% / 4 - 0.5rem);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  cursor: pointer;
+}
+.tabs-menu label:hover{
+  color: white;
+}
+
+.tabs-menu input[type="radio"]:checked+label{
+  color: white;
+}
+
+.tab-bg-hover {
+  position: absolute;
+  width: calc(100% / 4 - 0.5rem);
+  height: 2rem;
+  border-radius: .5rem;
+  background-image: linear-gradient(90deg, #a00, #d00);
+  transition: transform 300ms ease-in-out;
+}
+
+#tab1:checked ~ .tab-bg-hover {
+  transform: translateX(0);
+}
+#tab2:checked ~ .tab-bg-hover {
+  transform: translateX(100%);
+}
+#tab3:checked ~ .tab-bg-hover {
+  transform: translateX(200%);
+}
+#tab4:checked ~ .tab-bg-hover {
+  transform: translateX(300%);
+}
+
+.off-canvas-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 999;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.off-canvas-burger {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 998;
+  height: .6rem;
+  width: 3rem;
+  background-color: #d00;
+  border-radius: .3rem;
+  transform: rotate(0deg) translate(0, -1.2rem);
+  transition: transform 0.5s ease, background-color 500ms ease;
+}
+
+.off-canvas-burger::before, 
+.off-canvas-burger::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: .6rem;
+  background-color: #d00;
+  border-radius: .3rem;
+  transition: transform 0.5s ease;
+}
+
+.off-canvas-burger::before {
+  transform: rotate(0deg) translate(0, -0.9rem);
+}
+
+.off-canvas-burger::after {
+  transform: rotate(0deg) translate(0, 0.3rem);
+}
+
+.off-canvas-btn:checked + .off-canvas-burger {
+  background-color: transparent;
+}
+.off-canvas-btn:checked + .off-canvas-burger::before {
+  transform: rotate(45deg) translate(0, 0);
+}
+.off-canvas-btn:checked + .off-canvas-burger::after {
+  transform: rotate(-45deg) translate(0.4rem, -0.5rem);
+}
+
+.off-canvas-menu {
+  position: fixed;
+  /* top, left, bottom e right em 0 faz que o menu pegue o 100% da tela */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 997;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0008;
+  transition: transform 1s ease-in-out;
+  /* o transform assim faz que o menu seja deslocado para cima do vh, dessa forma quando ele aparecer, será do topo da tela */
+  transform: translate(0, -100%);
+}
+
+.off-canvas-btn:checked ~ .off-canvas-menu{
+  transform: translate(0, 0);
+}
+
+.off-canvas-menu-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.off-canvas-link {
+  padding: 2rem;
+  border-bottom: solid thin #d60;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  transition: background-color 370ms ease;
+}
+
+.off-canvas-link:first-child {
+  border-top: solid thin #d60;
+}
+
+.off-canvas-link:hover {
+  background-color: #d005;
+}
+
+.modal {
+  position: fixed;
+  /* top, left, bottom e right em 0 faz que o menu pegue o 100% da tela */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 997;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0008;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  position: relative;
+  border: thick double #d00;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: white;
+  width: 70%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  text-decoration: none;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background-color: #d00;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 50%;
+  transition: background-color 300ms linear, transform 300ms ease-in-out;
+}
+
+.modal-close:hover {
+  background-color: #a00;
+  transform: scale(1.2);
+}
+
+
